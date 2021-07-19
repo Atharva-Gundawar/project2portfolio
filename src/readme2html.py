@@ -14,15 +14,11 @@ def getHtml(filepath: str) -> str:
     """
 
     source = pathlib.Path(filepath).read_text()
-    # return markdown.markdown(source)
-    return markdown.markdown(source, extensions=['fenced_code', 'codehilite', 'toc'])
+    source = '[TOC]\n' + source
+    return markdown.markdown(source, extensions=['fenced_code', 'codehilite', 'toc', 'md_in_html'])
 
 
 if __name__ == '__main__':
-    md_text = '# Hello\n\n**Text**'
-    html = markdown.markdown(md_text)
-    print(html)
-    html = getHtml(
-        r'C:\Users\Atharva\Desktop\Projects\project2portfolio\README.md')
+    html = getHtml('README.md')
     with open('example.html', 'w') as f:
         f.write(html)
