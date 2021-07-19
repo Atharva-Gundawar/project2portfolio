@@ -1,16 +1,17 @@
 import subprocess
 
 
-def geturl() -> str:
+def getUrl() -> str:
     """Returns remote github url
 
     Returns:
         str: url
     """
     return subprocess.run('git config --get remote.origin.url'.split(" "),
-                            stdout=subprocess.PIPE).stdout.decode('utf-8')
+                          stdout=subprocess.PIPE).stdout.decode('utf-8')
 
-def colaburl(url: str)-> str:
+
+def colabUrl(url: str) -> str:
     """Returns colab url for a given ipynb notebook hosted on github
 
     Args:
